@@ -108,7 +108,6 @@ namespace MeshLoader
 			return nullptr;
 		}
 
-		//LOAD DATA USING METHODS ABOVE
 		LoadVertices(inFile, *mesh);
 		LoadTexCoords(inFile, *mesh);
 		LoadNormals(inFile, *mesh);

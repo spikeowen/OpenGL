@@ -12,7 +12,7 @@ public:
 	SceneObject(Mesh* mesh, Texture2D* texture);
 	virtual ~SceneObject();
 
-	virtual void Update();
+	virtual void Update(bool paused);
 	virtual void Draw();
-
+	virtual void Rotate(float rotation);
 };

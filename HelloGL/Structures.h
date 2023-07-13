@@ -54,3 +54,4 @@ struct Material
 	Vector4 Ambient, Diffuse, Specular;
 	GLfloat Shininess;
 };
+

@@ -8,6 +8,7 @@
 #include "Cube.h"
 #include "Pyramid.h"
 #include "MeshLoader.h"
+#include "bmpReader.h"
 
 #define REFRESHRATE 16
 
@@ -35,10 +36,13 @@ public:
 
 		void DrawString(const char* text, Vector3* position, Color* color);
 
+		
+
 private:
 	Camera* camera;
 	//Cube* cube[200];
 	SceneObject* objects[1000];
 	Vector4* _lightPosition;
 	Lighting* _lightData;
+	bool pause;
 };

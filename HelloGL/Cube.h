@@ -12,6 +12,8 @@ private:
 	GLfloat _rotation;
 	float speeds;
 	float startZ;
+	float startX;
+	float startY;
 	Vector3 _position;
 	Material* _material;
 
@@ -27,6 +29,6 @@ public:
 	~Cube();
 
 	void Draw();
-	void Update();
-	void SetRotation(float rotation);
+	void Update(bool paused);
+	void Rotate(float rotation);
 };

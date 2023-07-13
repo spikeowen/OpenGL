@@ -14,11 +14,14 @@ Cube::Cube(Mesh* mesh, Texture2D* texture, float x, float y, float z) : SceneObj
 	_position.y = y;
 	_position.z = z;
 	startZ = _position.z;
+	startX = _position.x;
+	startY = _position.y;
+	Materials();
 }
 
 Cube::~Cube()
 {
-
+	
 }
 
 void Cube::Draw()
@@ -34,7 +37,7 @@ void Cube::Draw()
 		glVertexPointer(3, GL_FLOAT, 0, _mesh->Vertices);
 		glNormalPointer(GL_FLOAT, 0, _mesh->Normals);
 
-		Materials();
+		
 		glMaterialfv(GL_FRONT, GL_AMBIENT, &(_material->Ambient.x));
 		glMaterialfv(GL_FRONT, GL_DIFFUSE, &(_material->Diffuse.x));
 		glMaterialfv(GL_FRONT, GL_SPECULAR, &(_material->Specular.x));
@@ -54,14 +57,43 @@ void Cube::Draw()
 	}
 }
 
-void Cube::Update()
+void Cube::Update(bool paused)
 {
-	_rotation += speeds;
-	_position.z += 0.25f;
-	if (_position.z >= 0.0f)
+	if (paused == false)
 	{
-		_position.z = startZ;
+		_rotation += speeds;
+		_position.z += 0.25f;
+
+		if (_position.x >= 0.0f)
+		{
+			_position.x += 0.05f;
+		}
+		else
+		{
+			_position.x -= 0.05f;
+		}
+
+		if (_position.y >= 25.0f)
+		{
+			_position.y += 0.05f;
+		}
+		else if (_position.y <= -25.0f)
+		{
+			_position.y -= 0.05f;
+		}
+
+		if (_position.z >= 0.0f)
+		{
+			_position.z = startZ;
+			_position.x = startX;
+			_position.y = startY;
+		}
 	}
+}
+
+void Cube::Rotate(float rotation)
+{
+	_rotation += rotation;
 }
 
 void Cube::Materials()

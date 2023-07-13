@@ -1,12 +1,28 @@
-﻿  HelloGL.cpp
-D:\Uni\FOGGS\Semester2\HelloGL\HelloGL\HelloGL.cpp(6,12): warning C4244:  'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\Uni\FOGGS\Semester2\HelloGL\HelloGL\HelloGL.cpp(149,29): warning C4305:  '=': truncation from 'double' to 'float'
-D:\Uni\FOGGS\Semester2\HelloGL\HelloGL\HelloGL.cpp(150,29): warning C4305:  '=': truncation from 'double' to 'float'
-D:\Uni\FOGGS\Semester2\HelloGL\HelloGL\HelloGL.cpp(151,29): warning C4305:  '=': truncation from 'double' to 'float'
-D:\Uni\FOGGS\Semester2\HelloGL\HelloGL\HelloGL.cpp(153,29): warning C4305:  '=': truncation from 'double' to 'float'
-D:\Uni\FOGGS\Semester2\HelloGL\HelloGL\HelloGL.cpp(154,29): warning C4305:  '=': truncation from 'double' to 'float'
-D:\Uni\FOGGS\Semester2\HelloGL\HelloGL\HelloGL.cpp(155,29): warning C4305:  '=': truncation from 'double' to 'float'
-D:\Uni\FOGGS\Semester2\HelloGL\HelloGL\HelloGL.cpp(157,30): warning C4305:  '=': truncation from 'double' to 'float'
-D:\Uni\FOGGS\Semester2\HelloGL\HelloGL\HelloGL.cpp(158,30): warning C4305:  '=': truncation from 'double' to 'float'
-D:\Uni\FOGGS\Semester2\HelloGL\HelloGL\HelloGL.cpp(159,30): warning C4305:  '=': truncation from 'double' to 'float'
-  HelloGL.vcxproj -> D:\Uni\FOGGS\Semester2\HelloGL\Debug\HelloGL.exe
+﻿  bmpReader.cpp
+  Cube.cpp
+D:\Github\OpenGL\HelloGL\Cube.cpp(10,21): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
+D:\Github\OpenGL\HelloGL\Cube.cpp(102,28): warning C4305: '=': truncation from 'double' to 'float'
+D:\Github\OpenGL\HelloGL\Cube.cpp(103,28): warning C4305: '=': truncation from 'double' to 'float'
+D:\Github\OpenGL\HelloGL\Cube.cpp(104,28): warning C4305: '=': truncation from 'double' to 'float'
+D:\Github\OpenGL\HelloGL\Cube.cpp(107,28): warning C4305: '=': truncation from 'double' to 'float'
+D:\Github\OpenGL\HelloGL\Cube.cpp(108,28): warning C4305: '=': truncation from 'double' to 'float'
+D:\Github\OpenGL\HelloGL\Cube.cpp(109,28): warning C4305: '=': truncation from 'double' to 'float'
+  GLUTCallbacks.cpp
+  HelloGL.cpp
+D:\Github\OpenGL\HelloGL\HelloGL.cpp(6,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Github\OpenGL\HelloGL\HelloGL.cpp(173,29): warning C4305: '=': truncation from 'double' to 'float'
+D:\Github\OpenGL\HelloGL\HelloGL.cpp(174,29): warning C4305: '=': truncation from 'double' to 'float'
+D:\Github\OpenGL\HelloGL\HelloGL.cpp(175,29): warning C4305: '=': truncation from 'double' to 'float'
+D:\Github\OpenGL\HelloGL\HelloGL.cpp(177,29): warning C4305: '=': truncation from 'double' to 'float'
+D:\Github\OpenGL\HelloGL\HelloGL.cpp(178,29): warning C4305: '=': truncation from 'double' to 'float'
+D:\Github\OpenGL\HelloGL\HelloGL.cpp(179,29): warning C4305: '=': truncation from 'double' to 'float'
+D:\Github\OpenGL\HelloGL\HelloGL.cpp(181,30): warning C4305: '=': truncation from 'double' to 'float'
+D:\Github\OpenGL\HelloGL\HelloGL.cpp(182,30): warning C4305: '=': truncation from 'double' to 'float'
+D:\Github\OpenGL\HelloGL\HelloGL.cpp(183,30): warning C4305: '=': truncation from 'double' to 'float'
+  main.cpp
+  MeshLoader.cpp
+  Pyramid.cpp
+  SceneObject.cpp
+  Texture2D.cpp
+  Generating Code...
+  HelloGL.vcxproj -> D:\Github\OpenGL\Debug\HelloGL.exe

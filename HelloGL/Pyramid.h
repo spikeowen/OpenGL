@@ -10,9 +10,12 @@ class Pyramid : public SceneObject
 {
 private:
 	Vector3 _position;
+	float startZ;
+	float startX;
+	float startY;
 
 public:
-	Pyramid(Mesh* mesh, float x, float y, float z);
+	Pyramid(Mesh* mesh, Texture2D* texture, float x, float y, float z);
 	~Pyramid();
 
 	void Draw();

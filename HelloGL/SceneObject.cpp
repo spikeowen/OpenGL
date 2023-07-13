@@ -11,11 +11,16 @@ SceneObject::~SceneObject()
 	//make sure to delete _mesh properties here
 }
 
-void SceneObject::Update()
+void SceneObject::Update(bool paused)
 {
 
 }
 void SceneObject::Draw()
+{
+
+}
+
+void SceneObject::Rotate(float rotation)
 {
 
 }

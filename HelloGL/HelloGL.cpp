@@ -8,6 +8,7 @@ HelloGL::HelloGL(int argc, char* argv[])
 	InitGL(argc, argv);
 	InitObjects();
 	Lights();
+	pause = false;
 	
 	glutMainLoop();
 }
@@ -29,8 +30,8 @@ void HelloGL::Display()
 		objects[i]->Draw();
 	}
 	Vector3 v = { -1.4f, 0.7f, -1.0f };
-	Color c = { 0.0f, 1.0f, 0.0f };
-	DrawString("Hyperspace Demo By Spike Owen", &v, &c);
+	Color c = { 1.0f, 1.0f, 1.0f };
+	DrawString("Meteor Storm Demo By Spike Owen", &v, &c);
 	glFlush(); //flushes the scene drawn to the graphics card
 	glutSwapBuffers();
 }
@@ -40,7 +41,7 @@ void HelloGL::Update()
 	glLoadIdentity();
 	for (int i = 0; i < 500; i++)
 	{
-		objects[i]->Update();
+		objects[i]->Update(pause);
 	}
 	gluLookAt(camera->eye.x, camera->eye.y, camera->eye.z, camera->center.x, camera->center.y, camera->center.z, camera->up.x, camera->up.y, camera->up.z);
 	glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Ambient.x));
@@ -52,45 +53,68 @@ void HelloGL::Update()
 
 void HelloGL::Keyboard(unsigned char key, int x, int y)
 {
-	if (key == 'w')
+	if (key == 'd')
 	{
 		camera->eye.x -= 0.1f;
 	}
 
-	if (key == 's')
+	if (key == 'a')
 	{
 		camera->eye.x += 0.1f;
 	}
 
-	if (key == 'r')
+	if (key == 'w')
 	{
 		camera->eye.y -= 0.1f;
 	}
 
-	if (key == 'f')
+	if (key == 's')
 	{
 		camera->eye.y += 0.1f;
+	}
+
+	if (key == 'p' && pause == false)
+	{
+		pause = true;
+	}
+	else if (key == 'p' && pause == true)
+	{
+		pause = false;
+	}
+
+	if (key == 'q' && pause == true)
+	{
+		for (int i = 0; i < 500; i++)
+		{
+			objects[i]->Rotate(1.0f);
+		}
 	}
 }
 
 void HelloGL::InitObjects()
 {
 	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
-	//Mesh* pyramidMesh = MeshLoader::Load((char*)"pyramid.txt");
+	Mesh* pyramidMesh = MeshLoader::Load((char*)"pyramid.txt");
+
+	BMPReader* tempText = new BMPReader();
+	tempText->loadBitMap((char*)"Asteroid.bmp", (char*)"Asteroid.raw");
 
 	Texture2D* texture = new Texture2D();
-	texture->Load((char*)"Penguins.raw", 512, 512);
+	texture->Load((char*)"Asteroid.raw", 512, 512);
+
+	Texture2D* texture2 = new Texture2D();
+	texture2->Load((char*)"stars.raw", 512, 512);
 	
 	camera = new Camera();
 
 	for (int i = 0; i < 500; i++)
 	{
-		objects[i] = new Cube(cubeMesh, texture, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
+		objects[i] = new Cube(cubeMesh, texture, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % (1000-100 + 1) + 100) / 10.0f);
 	}
-	/*for (int i = 500; i < 1000; i++)
-	{
-		objects[i] = new Pyramid(pyramidMesh, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
-	}*/
+	//for (int i = 500; i < 1000; i++)
+	//{
+	//	objects[i] = new Pyramid(pyramidMesh, texture2, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
+	//}
 
 	//old
 	camera->eye.x = 0.0f;
@@ -118,7 +142,7 @@ void HelloGL::InitGL(int argc, char* argv[])
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH);
 	glutInitWindowSize(800, 800);
 	glutInitWindowPosition(100, 100);
-	glutCreateWindow("Simple OpenGL Program");
+	glutCreateWindow("Spike's OpenGL Program");
 	glutDisplayFunc(GLUTCallbacks::Display);
 	glutTimerFunc(REFRESHRATE, GLUTCallbacks::Timer, REFRESHRATE);
 	glutKeyboardFunc(GLUTCallbacks::Keyboard);
